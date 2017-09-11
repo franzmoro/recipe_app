@@ -1,0 +1,43 @@
+{
+  "env": {
+    "node": true,
+    "es6": true,
+    "jasmine": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    },
+    "sourceType": "module"
+  },
+  "plugins": [],
+  "rules": {
+    "space-before-function-paren": [
+      "error",
+      "never"
+    ],
+    "prefer-reflect": [2, { "exceptions": ["apply", "call", "delete"] }],
+    "indent": [
+      "error",
+      2
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ]
+  },
+  "globals": {
+    "before": true
+  }
+}

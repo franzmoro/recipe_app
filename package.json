@@ -1,0 +1,35 @@
+{
+  "name": "RecipeApp",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "franzmoro",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint ./config ./models ./app.js ./routes.js ./utils",
+    "start": "node app.js",
+    "test": "NODE_ENV=test ./node_modules/.bin/_mocha \"./{,models/**/}*.spec.js\"",
+    "seed:dev": "NODE_ENV=development node ./seeds/index.js",
+    "validate": "npm ls"
+  },
+  "dependencies": {
+    "epilogue": "^0.7.1",
+    "express": "^4.15.4",
+    "mysql2": "^1.4.2",
+    "sequelize": "^4.8.2",
+    "uuid": "^3.1.0",
+    "walk-sync": "^0.3.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.6.1",
+    "eslint-watch": "^3.1.2",
+    "mocha": "^3.5.2",
+    "pre-commit": "^1.2.2",
+    "sequelize-fixtures": "^0.6.0",
+    "supertest": "^3.0.0"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ]
+}
