@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: true,
       classMethods: {
         associate(models) {
-          RecipeImage.belogsTo(models.Recipe, {
+          RecipeImage.belongsTo(models.Recipe, {
             foreignKey: { name: 'recipeId' }
           });
         }

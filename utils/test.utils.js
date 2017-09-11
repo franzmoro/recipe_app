@@ -13,6 +13,7 @@ module.exports = {
       config,
       request,
       should: chai.should(),
+      expect: chai.expect,
     };
   },
 };

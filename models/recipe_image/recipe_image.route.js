@@ -8,5 +8,5 @@ module.exports = ({ db, epilogue, epilogueResources }) => {
     actions: ['list', 'read']
   };
 
-  epilogueResources.recipe = epilogue.resource(resourceDefinition);
+  epilogueResources.recipeItem = epilogue.resource(resourceDefinition);
 };
