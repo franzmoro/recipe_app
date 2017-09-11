@@ -86,9 +86,10 @@ describe('RECIPE TESTS', () => {
   });
 
   it('should get by query input NAME PARTIAL', () => {
-    const PARTIAL_RECIPE_NAME = 'Chicken';
+    const PARTIAL_RECIPE_NAME = 'Caesar';
 
     const queryString = qs.stringify({ search: PARTIAL_RECIPE_NAME });
+
     return request
       .get(`${RESOURCE_BASE_URL}?${queryString}`)
       .send()
@@ -108,6 +109,46 @@ describe('RECIPE TESTS', () => {
 
         foundRecipes.length.should.equal(expectedRecipes.length);
         expect(foundRecipesNoTimestamp).to.deep.equal(expectedRecipes);
+      });
+  });
+
+  it('should get by query input INGREDIENT COMPLETE', () => {
+    const INGREDIENT_NAME = 'Thyme';
+
+    const queryString = qs.stringify({ search: INGREDIENT_NAME });
+    return request
+      .get(`${RESOURCE_BASE_URL}?${queryString}`)
+      .send()
+      .expect(200)
+      .then(({ body: foundRecipes }) => {
+        foundRecipes.length.should.be.above(0);
+
+        foundRecipes.forEach(({ lineItems }) => {
+          const matchedIngredient = lineItems.find(
+            ({ ingredient }) => ingredient.name === INGREDIENT_NAME
+          ).should.exist;
+          matchedIngredient.should.exist;
+        });
+      });
+  });
+
+  it('should get by query input INGREDIENT PARTIAL', () => {
+    const PARTIAL_INGREDIENT_NAME = 'Breast';
+
+    const queryString = qs.stringify({ search: PARTIAL_INGREDIENT_NAME });
+    return request
+      .get(`${RESOURCE_BASE_URL}?${queryString}`)
+      .send()
+      .expect(200)
+      .then(({ body: foundRecipes }) => {
+        foundRecipes.length.should.be.above(0);
+
+        foundRecipes.forEach(({ lineItems }) => {
+          const matchedIngredient = lineItems.find(
+            ({ ingredient }) => ingredient.name.includes(PARTIAL_INGREDIENT_NAME)
+          ).should.exist;
+          matchedIngredient.should.exist;
+        });
       });
   });
 });
