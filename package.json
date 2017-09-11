@@ -2,6 +2,7 @@
   "name": "RecipeApp",
   "version": "1.0.0",
   "main": "app.js",
+  "description": "Recipe app",
   "author": "franzmoro",
   "license": "MIT",
   "scripts": {

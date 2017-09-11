@@ -1,0 +1,92 @@
+[
+  {
+    "id": "9d384c40-ea59-403f-9cda-a135a60c31fb",
+    "name": "Cordon Bleu",
+    "cookingTimeMinutes": 20,
+    "images": [
+      { "url": "http://bradbudge.com/wp-content/uploads/2017/04/chicken-cordon-bleu.png" },
+      { "url": "https://i1.wp.com/joyfilledeats.com/wp-content/uploads/2016/08/IMG_6335.jpg?resize=512%2C341" }
+    ],
+    "lineItems": [
+      {
+        "quantity": 80,
+        "unit": "g",
+        "ingredient": {
+          "name": "Breaded Crumbs"
+        }
+      }, {
+        "quantity": 250,
+        "unit": "g",
+        "ingredient": {
+          "name": "Cooked Ham"
+        }
+      }, {
+        "quantity": 150,
+        "unit": "g",
+        "ingredient": {
+          "name": "Swiss cheese"
+        }
+      }
+    ]
+  }, {
+    "id": "b9932896-60cc-4b5b-b890-bf504484ca62",
+    "name": "Pizza Margherita",
+    "cookingTimeMinutes": 40,
+    "images": [
+      {
+        "url": "http://cultura.biografieonline.it/wp-content/uploads/2013/05/pizza-storia.jpg"
+      }
+    ],
+    "lineItems": [
+      {
+        "quantity": 900,
+        "unit": "g",
+        "ingredient": {
+          "name": "Flour"
+        }
+      }, {
+        "quantity": 30,
+        "unit": "g",
+        "ingredient": {
+          "name": "Brewer's Yeast"
+        }
+      }, {
+        "quantity": 10,
+        "unit": "g",
+        "ingredient": {
+          "name": "Salt"
+        }
+      }, {
+        "quantity": 5,
+        "unit": "dl",
+        "ingredient": {
+          "name": "Water"
+        }
+      }, {
+        "quantity": 500,
+        "unit": "g",
+        "ingredient": {
+          "name": "Mozzarella"
+        }
+      }, {
+        "quantity": 500,
+        "unit": "g",
+        "ingredient": {
+          "name": "Tomato Puree"
+        }
+      }, {
+        "quantity": 2,
+        "unit": "spoons",
+        "ingredient": {
+          "name": "Olive Oil"
+        }
+      }, {
+        "quantity": 1,
+        "unit": "handful",
+        "ingredient": {
+          "name": "Basil"
+        }
+      }
+    ]
+  }
+]

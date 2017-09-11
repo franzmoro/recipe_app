@@ -1,10 +1,10 @@
-const { NODE_ENV = 'dev' } = process.env;
+const { NODE_ENV = 'development' } = process.env;
 
 const config = {
   common: {
-    development: {
-      baseAPIURL: 'http://localhost:8080/api/v1',
-    },
+  },
+  development: {
+    baseAPIUrl: 'http://localhost:8080/api/v1',
   },
 };
 
