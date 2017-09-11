@@ -24,14 +24,14 @@ module.exports = (sequelize, DataTypes) => {
       tableName: 'recipe_images',
       freezeTableName: true,
       timestamps: true,
-      classMethods: {
-        associate(models) {
-          RecipeImage.belongsTo(models.Recipe, {
-            foreignKey: { name: 'recipeId' }
-          });
-        }
-      }
     }
   );
+
+  RecipeImage.associate = models => {
+    RecipeImage.belongsTo(models.Recipe, {
+      foreignKey: { name: 'recipeId' }
+    });
+  };
+
   return RecipeImage;
 };

@@ -1,4 +1,5 @@
 'use strict';
+const { join } = require('path');
 const chai = require('chai');
 const supertest = require('supertest');
 const server = require('../app');
@@ -14,6 +15,14 @@ module.exports = {
       request,
       should: chai.should(),
       expect: chai.expect,
+
+      getFixtureData(resourcePath) {
+        const fileName = join(
+          __dirname,
+          `../models/${resourcePath}/${resourcePath}.fixture`
+        );
+        return require(fileName).map(({ data }) => data);
+      },
     };
   },
 };

@@ -7,5 +7,5 @@ module.exports = {
   },
   generateUUID() {
     return uuidV4();
-  }
+  },
 };

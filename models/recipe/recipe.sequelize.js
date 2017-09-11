@@ -25,14 +25,14 @@ module.exports = (sequelize, DataTypes) => {
       tableName: 'recipes',
       freezeTableName: true,
       timestamps: true,
-      classMethods: {
-        associate(models) {
-          Recipe.hasMany(models.RecipeImage, {
-            foreignKey: { name: 'recipeId' }
-          });
-        }
-      }
     }
   );
+
+  Recipe.associate = models => {
+    Recipe.hasMany(models.RecipeImage, {
+      foreignKey: { name: 'recipeId' }
+    });
+  };
+
   return Recipe;
 };

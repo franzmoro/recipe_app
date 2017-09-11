@@ -11,6 +11,11 @@ module.exports = ({ db, epilogue, epilogueResources }) => {
         param: 'search',
         attributes: ['name']
       }
+    ],
+    include: [
+      {
+        model: db.RecipeImage,
+      }
     ]
   };
 
