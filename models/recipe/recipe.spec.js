@@ -50,6 +50,21 @@ describe('RECIPE TESTS', () => {
       });
   });
 
+
+  it('should GET single recipe', () => {
+    const [{ id: recipeId }] = recipesFixture;
+    return request
+      .get(`${RESOURCE_BASE_URL}/${recipeId}`)
+      .send()
+      .expect(200)
+      .then(({ body: retrievedRecipe }) => {
+        retrievedRecipe.id.should.equal(recipeId);
+        retrievedRecipe.images.should.exist;
+        retrievedRecipe.lineItems.should.exist;
+      });
+  });
+
+
   it('should include recipe line items along with response', () => {
     return request
       .get(RESOURCE_BASE_URL)
