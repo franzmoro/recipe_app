@@ -151,4 +151,24 @@ describe('RECIPE TESTS', () => {
         });
       });
   });
+
+  it('should get by query MAX COOKING TIME', () => {
+    const maxCookingTimeMinutes = 25;
+
+    const queryString = qs.stringify({ maxCookingTimeMinutes });
+    return request
+      .get(`${RESOURCE_BASE_URL}?${queryString}`)
+      .send()
+      .expect(200)
+      .then(({ body: foundRecipes }) => {
+        const expectedRecipes = recipesFixture.filter(({ cookingTimeMinutes }) => {
+          return cookingTimeMinutes <= maxCookingTimeMinutes;
+        });
+        foundRecipes.length.should.equal(expectedRecipes.length);
+
+        foundRecipes.forEach(({ cookingTimeMinutes }) => {
+          cookingTimeMinutes.should.be.at.most(maxCookingTimeMinutes);
+        });
+      });
+  });
 });

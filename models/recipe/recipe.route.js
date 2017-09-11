@@ -2,7 +2,7 @@
 
 module.exports = ({ app, db, config }) => {
   app.get(`${config.apiBaseUrl}/recipes`, (req, res, next) => {
-    const searchInput = req.query.search;
+    const { search: searchInput, maxCookingTimeMinutes } = req.query;
 
     const inclusionQuery = {
       include: [
@@ -26,7 +26,7 @@ module.exports = ({ app, db, config }) => {
     };
 
     const dbFriendlyInput = searchInput && `%${searchInput.toLowerCase()}%`;
-    const queryWithSearch = Object.assign(
+    const queryWithTextSearch = Object.assign(
       {},
       inclusionQuery,
       {
@@ -39,7 +39,16 @@ module.exports = ({ app, db, config }) => {
       }
     );
 
-    const dbQuery = searchInput ? queryWithSearch : inclusionQuery;
+    const dbQuery = searchInput ? queryWithTextSearch : inclusionQuery;
+
+    if (maxCookingTimeMinutes) {
+      dbQuery.where = Object.assign(
+        {},
+        dbQuery.where,
+        { cookingTimeMinutes: { $lte: maxCookingTimeMinutes } }
+      );
+    }
+
 
     return db.Recipe.findAll(dbQuery)
       .then(recipes => {
