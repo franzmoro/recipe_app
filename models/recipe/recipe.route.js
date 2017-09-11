@@ -15,7 +15,20 @@ module.exports = ({ db, epilogue, epilogueResources }) => {
     include: [
       {
         model: db.RecipeImage,
-      }
+        as: 'images',
+        attributes: ['url'],
+      }, {
+        model: db.RecipeLineItem,
+        as: 'lineItems',
+        attributes: ['quantity', 'unit'],
+        include: [
+          {
+            model: db.Ingredient,
+            as: 'ingredient',
+            attributes: ['name'],
+          }
+        ]
+      },
     ]
   };
 

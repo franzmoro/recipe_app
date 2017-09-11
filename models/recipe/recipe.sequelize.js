@@ -30,6 +30,11 @@ module.exports = (sequelize, DataTypes) => {
 
   Recipe.associate = models => {
     Recipe.hasMany(models.RecipeImage, {
+      as: 'images',
+      foreignKey: { name: 'recipeId' }
+    });
+    Recipe.hasMany(models.RecipeLineItem, {
+      as: 'lineItems',
       foreignKey: { name: 'recipeId' }
     });
   };

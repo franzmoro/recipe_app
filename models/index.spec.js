@@ -8,8 +8,10 @@ if (process.env.NODE_ENV !== 'test') {
 }
 
 const allFixtures = [
+  ...require('./ingredient/ingredient.fixture'),
   ...require('./recipe/recipe.fixture'),
   ...require('./recipe_image/recipe_image.fixture'),
+  ...require('./recipe_line_item/recipe_line_item.fixture'),
 ];
 
 before(() => {

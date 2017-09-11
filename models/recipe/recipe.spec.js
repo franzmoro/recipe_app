@@ -1,7 +1,7 @@
 'use strict';
 
 const qs = require('querystring');
-const { omit } = require('lodash');
+const { omit, uniq } = require('lodash');
 const {
   request,
   config,
@@ -9,11 +9,14 @@ const {
   getFixtureData,
 } = require('../../utils/test.utils').initializeTest();
 
-const NON_FIXTURE_FIELDS = ['created_at', 'updated_at', 'RecipeImages'];
+const NON_FIXTURE_FIELDS = [
+  'created_at', 'updated_at', 'images', 'lineItems'
+];
 const RESOURCE_BASE_URL = `${config.apiBaseUrl}/recipes`;
 
 const recipesFixture = getFixtureData('recipe');
 const recipeImagesFixture = getFixtureData('recipe_image');
+const recipeLineItemsFixture = getFixtureData('recipe_line_item');
 
 describe('RECIPE TESTS', () => {
   it('should GET all recipes', () => {
@@ -33,17 +36,34 @@ describe('RECIPE TESTS', () => {
       .expect(200)
       .then(({ body: recipes }) => {
         const recipesWithImages = recipes.filter(
-          ({ RecipeImages }) => RecipeImages.length
+          ({ images }) => images.length
         );
         recipesWithImages.length.should.equal(recipeImagesFixture.length);
 
-        recipesWithImages.forEach(({ RecipeImages }) => {
-          const [{ url: firstImageUrl, recipeId }] = RecipeImages;
-          const { url: expectedUrl} = recipeImagesFixture.find(image => {
-            return image.recipeId = recipeId;
+        recipesWithImages.forEach(({ images }) => {
+          const [{ url: firstImageUrl }] = images;
+          const { url: fixtureMatch } = recipeImagesFixture.find(image => {
+            return image.url = firstImageUrl;
           });
-          firstImageUrl.should.equal(expectedUrl);
+          fixtureMatch.should.exist;
         });
+      });
+  });
+
+  it('should include recipe line items along with response', () => {
+    return request
+      .get(RESOURCE_BASE_URL)
+      .send()
+      .expect(200)
+      .then(({ body: recipes }) => {
+        const recipesWithLineItems = recipes.filter(
+          ({ lineItems }) => lineItems.length
+        );
+        const expectedRecipes = uniq(
+          recipeLineItemsFixture.map(lineItem => lineItem.recipeId)
+        );
+        recipesWithLineItems.length.should.be.above(0);
+        recipesWithLineItems.length.should.equal(expectedRecipes.length);
       });
   });
 
