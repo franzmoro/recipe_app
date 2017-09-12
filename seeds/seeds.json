@@ -1,0 +1,164 @@
+[
+  {
+    "model": "Recipe",
+    "data": [
+      {
+        "id": "057c7c7d-dfe2-4bbb-b827-c50bd814ed19",
+        "name": "Lemon Chicken",
+        "cookingTimeMinutes": 30
+      },
+      {
+        "id": "9d384c40-ea59-403f-9cda-a135a60c31fb",
+        "name": "Cordon Bleu",
+        "cookingTimeMinutes": 20
+      },
+      {
+        "id": "b9932896-60cc-4b5b-b890-bf504484ca62",
+        "name": "Pizza Margherita",
+        "cookingTimeMinutes": 40
+      },
+      {
+        "id": "b8286c90-769e-4c26-9599-76242032cc01",
+        "name": "Eggplant Parmigiana",
+        "cookingTimeMinutes": 30
+      },
+      {
+        "id": "1b8f8225-c95b-4490-98bc-71e724f6e8dc",
+        "name": "Veal with Chorizo and Green Peppers",
+        "cookingTimeMinutes": 20
+      }
+    ]
+  },
+  {
+    "model": "RecipeImage",
+    "data": [
+      {
+        "recipeId": "9d384c40-ea59-403f-9cda-a135a60c31fb",
+        "url": "http://bradbudge.com/wp-content/uploads/2017/04/chicken-cordon-bleu.png"
+      },
+      {
+        "recipeId": "9d384c40-ea59-403f-9cda-a135a60c31fb",
+        "url": "https://i1.wp.com/joyfilledeats.com/wp-content/uploads/2016/08/IMG_6335.jpg?resize=512%2C341"
+      },
+      {
+        "recipeId": "b9932896-60cc-4b5b-b890-bf504484ca62",
+        "url": "http://cultura.biografieonline.it/wp-content/uploads/2013/05/pizza-storia.jpg"
+      }
+    ]
+  },
+  {
+    "model": "Ingredient",
+    "data": [
+      {
+        "id": "9cbd67ce-c1f1-43da-ac6c-978b3d8f8ec7",
+        "name": "Breaded Crumbs"
+      },
+      {
+        "id": "5216f243-3042-4ea6-a8e1-c92d684f68ac",
+        "name": "Cooked Ham"
+      },
+      {
+        "id": "b5b3b4cf-e154-4870-a8d1-d36102e8e140",
+        "name": "Swiss cheese"
+      },
+      {
+        "id": "76c6a6ce-5d6a-4f45-b55a-8bf478c91ae6",
+        "name": "Flour"
+      },
+      {
+        "id": "94551d9c-978e-47f8-9470-0cd1d3263bbe",
+        "name": "Brewer's Yeast"
+      },
+      {
+        "id": "d036010e-7941-4458-a724-c6bff2579d9d",
+        "name": "Salt"
+      },
+      {
+        "id": "0968870f-b2d5-4d19-8386-40cc00f9d97c",
+        "name": "Water"
+      },
+      {
+        "id": "dcf01d98-9583-4658-aa95-361420f86f3c",
+        "name": "Mozzarella"
+      },
+      {
+        "id": "1ca11cea-fcc9-4881-a328-57e356db5afd",
+        "name": "Tomato Puree"
+      },
+      {
+        "id": "83619bc8-5b9c-419d-a3ef-0970e820fdc9",
+        "name": "Olive Oil"
+      },
+      {
+        "id": "4b1c67dd-cb9f-4d23-a0de-6a71ee2a08fc",
+        "name": "Basil"
+      }
+    ]
+  },
+  {
+    "model": "RecipeLineItem",
+    "data": [
+      {
+        "ingredientId": "9cbd67ce-c1f1-43da-ac6c-978b3d8f8ec7",
+        "recipeId": "9d384c40-ea59-403f-9cda-a135a60c31fb",
+        "quantity": 80,
+        "unit": "g"
+      },
+      {
+        "recipeId": "9d384c40-ea59-403f-9cda-a135a60c31fb",
+        "ingredientId": "5216f243-3042-4ea6-a8e1-c92d684f68ac",
+        "quantity": 250,
+        "unit": "g"
+      },
+      {
+        "recipeId": "9d384c40-ea59-403f-9cda-a135a60c31fb",
+        "ingredientId": "b5b3b4cf-e154-4870-a8d1-d36102e8e140",
+        "quantity": 150,
+        "unit": "g"
+      },
+      {
+        "recipeId": "b9932896-60cc-4b5b-b890-bf504484ca62",
+        "ingredientId": "76c6a6ce-5d6a-4f45-b55a-8bf478c91ae6",
+        "quantity": 900,
+        "unit": "g"
+      }, {
+        "recipeId": "b9932896-60cc-4b5b-b890-bf504484ca62",
+        "ingredientId": "94551d9c-978e-47f8-9470-0cd1d3263bbe",
+        "quantity": 30,
+        "unit": "g"
+      },
+      {
+        "recipeId": "b9932896-60cc-4b5b-b890-bf504484ca62",
+        "ingredientId": "d036010e-7941-4458-a724-c6bff2579d9d",
+        "quantity": 10,
+        "unit": "g"
+      },
+      {
+        "recipeId": "b9932896-60cc-4b5b-b890-bf504484ca62",
+        "ingredientId": "0968870f-b2d5-4d19-8386-40cc00f9d97c",
+        "quantity": 5,
+        "unit": "dl"
+      }, {
+        "recipeId": "b9932896-60cc-4b5b-b890-bf504484ca62",
+        "ingredientId": "dcf01d98-9583-4658-aa95-361420f86f3c",
+        "quantity": 500,
+        "unit": "g"
+      }, {
+        "recipeId": "b9932896-60cc-4b5b-b890-bf504484ca62",
+        "ingredientId": "1ca11cea-fcc9-4881-a328-57e356db5afd",
+        "quantity": 500,
+        "unit": "g"
+      }, {
+        "recipeId": "b9932896-60cc-4b5b-b890-bf504484ca62",
+        "ingredientId": "83619bc8-5b9c-419d-a3ef-0970e820fdc9",
+        "quantity": 2,
+        "unit": "spoons"
+      }, {
+        "recipeId": "b9932896-60cc-4b5b-b890-bf504484ca62",
+        "ingredientId": "4b1c67dd-cb9f-4d23-a0de-6a71ee2a08fc",
+        "quantity": 1,
+        "unit": "handful"
+      }
+    ]
+  }
+]

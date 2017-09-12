@@ -1,5 +1,5 @@
 'use strict';
-const { NODE_ENV } = process.env;
+const { NODE_ENV = 'development' } = process.env;
 
 const config = {
   common: {
