@@ -6,7 +6,6 @@ import RecipeItem from '../RecipeItem';
 
 import * as globalSelectors from '../../../app/index.selectors';
 import * as recipesActionCreators from '../../index.actionCreators';
-import * as searchActionCreators from '../../../search/index.actionCreators';
 
 class RecipesList extends Component {
   componentDidMount() {
@@ -26,8 +25,6 @@ class RecipesList extends Component {
       recipes,
       isLoading,
       loadingError,
-      // textSearch,
-      // maxCookingTime
     } = this.props;
 
     const NO_RECIPES_MESSAGE = 'Sorry, we currently have no recipes for you';
@@ -58,8 +55,6 @@ RecipesList.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   loadingError: PropTypes.string,
   retrieveRecipes: PropTypes.func.isRequired,
-  maxCookingTime: PropTypes.number,
-  textSearch: PropTypes.string.isRequired,
 };
 
 RecipesList.defaultProps = {
@@ -71,14 +66,10 @@ const mapStateToProps = state => ({
   recipes: globalSelectors.getRecipes(state),
   isLoading: globalSelectors.getLoadingStatus(state),
   loadingError: globalSelectors.getLoadingError(state),
-  maxCookingTime: globalSelectors.getMaxCookingTime(state),
-  textSearch: globalSelectors.getTextSearch(state),
 });
 
 const mapDispatchToProps = dispatch => ({
   retrieveRecipes: params => dispatch(recipesActionCreators.retrieveRecipes(params)),
-  setMaxCookingTime: value => dispatch(searchActionCreators.setMaxCookingTime(value)),
-  setTextSearch: value => dispatch(searchActionCreators.setTextSearch(value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipesList);

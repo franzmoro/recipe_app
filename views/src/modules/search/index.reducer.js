@@ -2,7 +2,7 @@ import * as actionTypes from './index.actionTypes';
 
 export const INITIAL_STATE = {
   maxCookingTime: undefined,
-  textSearch: '',
+  textSearch: undefined,
 };
 
 export default (state = INITIAL_STATE, action) => {

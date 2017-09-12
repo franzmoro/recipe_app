@@ -4,8 +4,7 @@ export default {
     float: 'right',
     marginRight: '5%',
     textAlign: 'right',
+    fontSize: '1.7em',
   },
-  cookingTime: {
-    fontSize: '1.5em',
-  },
+  cookingTime: {},
 };

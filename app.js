@@ -1,6 +1,7 @@
 'use strict';
 const express = require('express');
 const cors = require('cors');
+const logger = require('morgan');
 
 const { NODE_ENV = 'development' } = process.env;
 const config = require('./config');
@@ -18,6 +19,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+app.use(logger('dev'));
 
 app.get('/', (req, res) => res.status(200).json('Recipe App API'));
 require('./routes')({ app, config, db });

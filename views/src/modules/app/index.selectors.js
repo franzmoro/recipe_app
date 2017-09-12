@@ -6,4 +6,4 @@ export const getLoadingStatus = (state = {}) => recipesSelectors.getLoadingStatu
 export const getLoadingError = (state = {}) => recipesSelectors.getLoadingError(state.recipes);
 
 export const getMaxCookingTime = (state = {}) => searchSelectors.getMaxCookingTime(state.search);
-export const getTextSearch = (state = {}) => searchSelectors.getTextSearch(state.search);
+export const getText = (state = {}) => searchSelectors.getText(state.search);
