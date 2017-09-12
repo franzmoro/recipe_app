@@ -22,9 +22,9 @@ db.sequelize.sync({ force: true })
   .then(() => loadFixtures(seedFixtures, db))
   .then(() => {
     console.log('done inserting seeds'); // eslint-disable-line
-    process.exit(1);
+    process.exit();
   })
   .catch(err => {
     console.log('There was an error inserting seeds in db', err); // eslint-disable-line
-    process.exit(-1);
+    process.exit(1);
   });
