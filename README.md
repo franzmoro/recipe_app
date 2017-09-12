@@ -1,3 +1,17 @@
+# Completion Status
+### Completed
+- Displaying recipes from db
+- Filtering them by ingredient / recipe name(s)
+- Backend query for maximumCookingTime
+- Tests for Frontend actions and backend routes
+
+### Would have done with more time
+- CSS Layout responsiveness / image sizing (current layout is optimized only for 13" screen)
+- Filtering by Cooking time (logic had been applied on the back end)
+- Starring recipes
+- Populate dev database with more seed data
+- Deployment to AWS
+
 # Dev Setup
 ## Third Party Items
 Install unless they're already on your machine:
@@ -31,6 +45,7 @@ From the `views` folder:
 - run the project:
   - in development mode with `yarn dev`
   - in build/production mode with `yarn build` or `yarn npm build`
+- go to `http://localhost:9000`
 - run tests with `yarn test` or `npm test`
 
 # Technical Choices
