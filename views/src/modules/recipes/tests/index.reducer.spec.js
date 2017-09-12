@@ -1,6 +1,6 @@
 import recipesReducer, { INITIAL_STATE } from '../index.reducer';
 import * as actionTypes from '../index.actionTypes';
-import { createAction } from '../../../utility/action.utils';
+import * as actionUtils from '../../../utility/action.utils';
 import mockRecipesResponse from './mocks/recipes.json';
 
 describe('RECIPES REDUCER TESTS', () => {
@@ -21,7 +21,7 @@ describe('RECIPES REDUCER TESTS', () => {
     });
 
     it('should be able to set succesfully retrieved recipes', () => {
-      const action = createAction(
+      const action = actionUtils.createAction(
         actionUtils.fulfilledAction(actionTypes.RETRIEVE_RECIPES),
         mockRecipesResponse
       );
@@ -35,7 +35,7 @@ describe('RECIPES REDUCER TESTS', () => {
 
     it('should be able to respond to non found recipes', () => {
       const error = new Error('not found');
-      const action = createAction(
+      const action = actionUtils.createAction(
         actionUtils.rejectedAction(actionTypes.RETRIEVE_RECIPES),
         error
       );
@@ -48,7 +48,7 @@ describe('RECIPES REDUCER TESTS', () => {
     });
 
     it('should be able to set loading status while retrieving recipes', () => {
-      const action = createAction(
+      const action = actionUtils.createAction(
         actionUtils.pendingAction(actionTypes.RETRIEVE_RECIPES)
       );
       startingState = {
