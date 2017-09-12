@@ -1,10 +1,23 @@
 'use strict';
 const express = require('express');
+const cors = require('cors');
 
 const { NODE_ENV = 'development' } = process.env;
 const config = require('./config');
 const db = require('./models').initializeDB(config);
 const app = express();
+
+const whitelist = [
+  'http://localhost:9000'
+];
+const corsOptions = {
+  origin: (origin, callback) => {
+    const originIsWhitelisted = whitelist.includes(origin);
+    callback(null, originIsWhitelisted);
+  },
+};
+
+app.use(cors(corsOptions));
 
 app.get('/', (req, res) => res.status(200).json('Recipe App API'));
 require('./routes')({ app, config, db });
